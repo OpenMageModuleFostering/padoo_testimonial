@@ -38,13 +38,17 @@ class Padoo_Testimonial_SubmitController extends Mage_Core_Controller_Front_Acti
 			$validate = $testimonial->validate();
 			if ($validate === true) {
 				$formId = 'padoo_testimonial';
-				$captchaModel = Mage::helper('captcha')->getCaptcha($formId);
-				if ($captchaModel->isRequired()) {
-					$word = $this->_getCaptchaString($this->getRequest(), $formId);
-					if (!$captchaModel->isCorrect($word)) {
-						Mage::getSingleton('core/session')->addError(Mage::helper('captcha')->__('Incorrect CAPTCHA.'));
-						$this->_redirectReferer('');
-						return;
+				$magentoVersion = Mage::getVersion();
+				if (version_compare($magentoVersion, '1.7', '>=')){
+					//version is 1.7 or greater
+					$captchaModel = Mage::helper('captcha')->getCaptcha($formId);
+					if ($captchaModel->isRequired()) {
+						$word = $this->_getCaptchaString($this->getRequest(), $formId);
+						if (!$captchaModel->isCorrect($word)) {
+							Mage::getSingleton('core/session')->addError(Mage::helper('captcha')->__('Incorrect CAPTCHA.'));
+							$this->_redirectReferer('');
+							return;
+						}
 					}
 				}
 			
