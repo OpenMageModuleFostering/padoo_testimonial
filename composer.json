@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/padoo_testimonial",
+    "name": "OpenMageModuleFostering\/padoo_testimonial",
     "type": "magento-module",
     "license": "GNU-General-Public-License-(GPL)",
     "homepage": "",
     "description": "Allow customers post testimonial text and their image. And support flexible how display testimonials sliders on home page or other page with static block.",
     "authors": [
-    {
-        "name": "Padoosoft",
-        "email": "stdspace@gmail.com"
-    }
-],
+        {
+            "name": "Padoosoft",
+            "email": "stdspace@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
